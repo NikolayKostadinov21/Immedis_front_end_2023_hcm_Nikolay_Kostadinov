@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { TokenStorageService } from '../../services/token-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-sign-in',
@@ -26,7 +27,8 @@ export class SignInComponent implements OnInit {
 
     constructor(
         private authService: AuthService,
-        private tokenStorage: TokenStorageService
+        private tokenStorage: TokenStorageService,
+        private router: Router
     ) { }
 
     ngOnInit(): void {
@@ -44,7 +46,7 @@ export class SignInComponent implements OnInit {
                 this.tokenStorage.saveUser(user);
                 this.isLoginFailed = false;
                 this.isLoggedIn = true;
-                // redirect
+                this.router.navigate(['./dashboard']);
             },
             error: error => {
                 this.errorMessage = error.error.message;

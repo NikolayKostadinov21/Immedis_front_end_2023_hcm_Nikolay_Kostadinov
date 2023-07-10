@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Role } from 'src/helpers/user';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,25 +10,34 @@ import { AuthService } from '../auth.service';
 })
 export class SignUpComponent {
 
+    roles: Role[] = [];
+
     signUpForm = new FormGroup({
-    username: new FormControl('', {
-        validators: [Validators.required],
+        email: new FormControl('', {
+            validators: [Validators.required]
         }),
         password: new FormControl('', {
-        validators: [Validators.required],
+            validators: [Validators.required],
         }),
-    });
+        firstName: new FormControl('', {
+            validators: [Validators.required],
+        }),
+        lastName: new FormControl('', {
+            validators: [Validators.required],
+        }),
+        role: new FormControl('', {
+            validators: [Validators.required],
+        }),
+    })
 
     constructor(
         private authService: AuthService
-    ) { }
-
-    ngOnInit(): void {
-        
+    ) { 
+        this.roles = Object.values(Role);
     }
 
     onSubmit(): void {
-        const { username, password } = this.signUpForm.value;
-        this.authService.signUp(username!, password!).subscribe();
+        const { email, password, firstName, lastName, role } = this.signUpForm.value;
+        this.authService.signUp(email!, password!, role as any, firstName!, lastName!).subscribe();
     }
 }

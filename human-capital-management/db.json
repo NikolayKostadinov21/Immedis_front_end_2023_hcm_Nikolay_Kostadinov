@@ -14,6 +14,14 @@
       "email": "test1@gmail.com",
       "password": "$2a$10$A2gjyNLAuOUahHZTSIp0K.SGCRQ72l7WOMEK3MMALABkyUqNA6HkK",
       "id": 3
+    },
+    {
+      "email": "nikolay@gmail.com",
+      "password": "$2a$10$sbUzgPi7aC/bH09vMO2C2O3AMsCYOloOlslOxbkC/5RMTQpOqHJde",
+      "roles": "Admin",
+      "firstName": "Nikolay",
+      "secondName": "Kostadinov",
+      "id": 4
     }
   ]
 }

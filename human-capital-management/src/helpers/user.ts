@@ -1,7 +1,7 @@
-enum Role {
-    admin = 'admin',
-    moderator = 'moderator',
-    user = 'user',
+export enum Role {
+    admin = 'Admin',
+    moderator = 'Moderator',
+    user = 'User',
 }
 
 export interface User {

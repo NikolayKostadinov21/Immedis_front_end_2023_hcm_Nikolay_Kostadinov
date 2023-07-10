@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map, shareReplay } from "rxjs";
 import { AUTH_API, HTTP_OPTIONS } from '../../src/constants';
+import { User } from "src/helpers/user";
 
 export interface AccessData {
     token_type: 'Bearer';
@@ -49,10 +50,17 @@ export class AuthService {
      * @param {string} password
      * @returns Observable<AccessData>
      */
-    signUp(email: string, password: string): Observable<any> {
+    signUp(email: string, password: string, roles: string[], firstName: string, secondName: string): Observable<any> {
         return this.httpClient.post<any>('http://localhost:3000/register', {
             email,
-            password
+            password,
+            roles,
+            firstName,
+            secondName
         }, HTTP_OPTIONS);
+    }
+
+    private getUser(token: string): User {
+        return JSON.parse(atob(token.split('.')[1])) as User;
     }
 }
