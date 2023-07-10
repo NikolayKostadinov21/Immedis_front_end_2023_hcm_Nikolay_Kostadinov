@@ -10,7 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { httpInterceptorProviders } from 'src/authentication/interceptors/auth.interceptor';
 
 @NgModule({
     declarations: [
@@ -27,10 +28,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
         MatFormFieldModule,
         BrowserAnimationsModule,
         ReactiveFormsModule,
-        FormsModule 
-        // AuthModule
+        FormsModule,
+        AuthModule
     ],
-    providers: [],
+    providers: [httpInterceptorProviders],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

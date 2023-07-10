@@ -1,7 +1,14 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, shareReplay } from "rxjs";
+import { Observable, map, shareReplay } from "rxjs";
+import { AUTH_API, HTTP_OPTIONS } from '../../src/constants';
 
+export interface AccessData {
+    token_type: 'Bearer';
+    expires_in: number;
+    access_token: string;
+    refresh_token: string;
+}
 
 @Injectable({
     providedIn: 'root' // @audit what this does
@@ -12,31 +19,40 @@ export class AuthService {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }) //@audit is this actually needed?
     };
 
+
     constructor(private httpClient: HttpClient) { }
 
+    // @audit fix mock comment
     /**
      * Performs a request with user credentials
      * in order to get auth tokens
      *
      * @param {string} email
      * @param {string} password
-     * @returns Observable<>
+     * @returns Observable<AccessData>
      */
-    login(email: string, password: string): Observable<any> { // Observable <type> missing! @audit
-        return this.httpClient.post('API', {
+    signIn(email: string, password: string): Observable<any> {
+        return this.httpClient.post<any>('http://localhost:3000/login', {
             email,
             password
-        })
-        .pipe(
-            // shareReplay(1) @audit shareReplay(1) implementation considaeration!
-        )
+        }, HTTP_OPTIONS).pipe(
+            shareReplay()
+        );
     }
 
-    register(email: string, password: string, username: string): Observable<any> {
-        return this.httpClient.post<any>('API', {
+    // @audit fix mock comment
+    /**
+     * Performs a request with user credentials
+     * in order to get auth tokens
+     *
+     * @param {string} email
+     * @param {string} password
+     * @returns Observable<AccessData>
+     */
+    signUp(email: string, password: string): Observable<any> {
+        return this.httpClient.post<any>(AUTH_API + '/signup', {
             email,
-            password,
-            username
-        })
+            password
+        }, HTTP_OPTIONS);
     }
 }
