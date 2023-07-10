@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { LocalStorageService } from './local-storage.service';
+import { USER_KEY } from 'src/constants';
 
 @Injectable({ providedIn: 'root' })
 export class TokenStorageService {
@@ -17,21 +18,17 @@ export class TokenStorageService {
         this.localStorageService.setToken(tokenValue);
     }
 
-    // getRefreshToken(): string {
-    //     return this.localStorageService.getItem(this.refreshTokenKey) as string;
-    // }
+    public saveUser(user: any): void {
+        localStorage.removeItem(USER_KEY);
+        localStorage.setItem(USER_KEY, JSON.stringify(user));
+    }
 
-    // saveRefreshToken(token: string) {
-    //     this.localStorageService.setItem(this.refreshTokenKey, token);
-    // }
+    public getUser(): any {
+        const user = window.sessionStorage.getItem(USER_KEY);
+        if (user) {
+            return JSON.parse(user);
+        }
 
-    // saveTokens(accessToken: string, refreshToken: string) {
-    //     this.saveAccessToken(accessToken);
-    //     this.saveRefreshToken(refreshToken);
-    // }
-
-    // removeTokens() {
-    //     this.localStorageService.removeItem(this.accessTokenKey);
-    //     this.localStorageService.removeItem(this.refreshTokenKey);
-    // }
+        return {};
+    }
 }

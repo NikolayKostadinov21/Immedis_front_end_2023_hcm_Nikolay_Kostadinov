@@ -6,3 +6,4 @@ export const HTTP_OPTIONS = {
 };
 export const ID_TOKEN = 'id_token';
 export const EXPIRES_AT = 'expires_at';
+export const USER_KEY = 'id_user';

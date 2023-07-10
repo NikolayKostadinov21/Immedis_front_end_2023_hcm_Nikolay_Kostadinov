@@ -50,7 +50,7 @@ export class AuthService {
      * @returns Observable<AccessData>
      */
     signUp(email: string, password: string): Observable<any> {
-        return this.httpClient.post<any>(AUTH_API + '/signup', {
+        return this.httpClient.post<any>('http://localhost:3000/register', {
             email,
             password
         }, HTTP_OPTIONS);

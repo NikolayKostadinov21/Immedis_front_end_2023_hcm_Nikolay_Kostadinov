@@ -22,6 +22,14 @@ export class LocalStorageService {
         return localStorage.getItem(ID_TOKEN);
     }
 
+    // /**
+    //  * Removes token value from local storage by Id
+    //  * @return {string | null}
+    //  */
+    // removeToken(): void {
+    //     localStorage.removeItem(ID_TOKEN);
+    // }
+
     /**
      * Remove all key-value pairs from the web browser's localStorage object.
      */

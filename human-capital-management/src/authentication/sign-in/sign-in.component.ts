@@ -38,13 +38,12 @@ export class SignInComponent implements OnInit {
     onSubmit(): void {
         const { username, password } = this.signInForm.value;
         this.authService.signIn(username!, password!).subscribe({
-            next: (value) => {
+            next: (user) => {
                 console.log('User logged in!');
-                this.tokenStorage.saveAccessToken(value.accessToken);
-                // @audit save user
+                this.tokenStorage.saveAccessToken(user.accessToken);
+                this.tokenStorage.saveUser(user);
                 this.isLoginFailed = false;
                 this.isLoggedIn = true;
-                // @audit get user's roles
                 // redirect
             },
             error: error => {
