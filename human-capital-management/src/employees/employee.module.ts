@@ -6,12 +6,19 @@ import { MatTableModule } from "@angular/material/table";
 import { MatSortModule } from "@angular/material/sort";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { EmployeeEditComponent } from "./employee-edit/employee-edit.component";
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 const routes: Routes = [];
 
 const modulesMaterial = [
     MatTableModule,
     MatSortModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
 ];
 
 @NgModule({
@@ -23,7 +30,8 @@ const modulesMaterial = [
         RouterModule.forChild(routes)
     ],
     declarations: [
-        EmployeeListComponent
+        EmployeeListComponent,
+        EmployeeEditComponent
     ]
 })
 

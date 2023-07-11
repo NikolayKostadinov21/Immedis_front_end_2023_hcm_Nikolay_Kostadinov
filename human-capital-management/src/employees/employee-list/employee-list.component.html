@@ -55,6 +55,17 @@
                 Age
             </th>
             <td mat-cell *matCellDef="let user"> {{user.age}} </td>
+        </ng-container>'Action'
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>
+                Action
+            </th>
+            <td mat-cell *matCellDef="">
+                <button md-raised-button (click)="editEmployee()">Edit</button>
+                <button md-raised-button>Delete</button>
+            </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
