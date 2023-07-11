@@ -1,35 +1,20 @@
 {
   "users": [
     {
-      "email": "olivier@mail.com",
-      "password": "$2a$10$JErqfDDlcQ0aoRe1xGuLyuxwymFV8V/pRnTWN6b9M3xYSbwJ117SC",
+      "email": "niko@gmail.com",
+      "password": "$2a$10$LnjuAQ23w.Ga/FD/MrdRU.0O5g1XNIPlSXTa/3jrkzWMNQvL7dbPO",
+      "role": "Admin",
+      "firstName": "niko",
+      "secondName": "kostadinov",
       "id": 1
     },
     {
       "email": "test@gmail.com",
-      "password": "$2a$10$RiSLn7YfnBw1uv5VMd3sEepB2O0Gmq8rakWhUv6YjJdFVSLzGIf4i",
-      "id": 2
-    },
-    {
-      "email": "test1@gmail.com",
-      "password": "$2a$10$A2gjyNLAuOUahHZTSIp0K.SGCRQ72l7WOMEK3MMALABkyUqNA6HkK",
-      "id": 3
-    },
-    {
-      "email": "nikolay@gmail.com",
-      "password": "$2a$10$sbUzgPi7aC/bH09vMO2C2O3AMsCYOloOlslOxbkC/5RMTQpOqHJde",
-      "roles": "Admin",
-      "firstName": "Nikolay",
-      "secondName": "Kostadinov",
-      "id": 4
-    },
-    {
-      "email": "test2@gmail.com",
-      "password": "$2a$10$Rr21yGlpHMZwjgbcPib5h.2viehCUxCgYtLNAWm7CRx53nTV3ZHje",
-      "roles": "Moderator",
+      "password": "$2a$10$xZtExX7fDqCRf6UIk9/8m.f.sfFakVKwdg0pG/acxpo.vyy171fqy",
+      "role": "Moderator",
       "firstName": "test",
-      "secondName": "test",
-      "id": 5
+      "secondName": "testov",
+      "id": 2
     }
   ]
 }

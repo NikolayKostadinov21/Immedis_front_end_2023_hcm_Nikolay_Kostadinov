@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
-import { Role } from 'src/helpers/user';
+import { AuthService } from '../../shared/services/auth.service';
+import { Role } from 'src/shared/models/roles.model';
 
 @Component({
   selector: 'app-sign-up',
@@ -38,6 +38,6 @@ export class SignUpComponent {
 
     onSubmit(): void {
         const { email, password, firstName, lastName, role } = this.signUpForm.value;
-        this.authService.signUp(email!, password!, role as any, firstName!, lastName!).subscribe();
+        this.authService.signUp(email!, password!, role!, firstName!, lastName!).subscribe();
     }
 }

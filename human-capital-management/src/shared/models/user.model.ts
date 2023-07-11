@@ -1,8 +1,5 @@
-export enum Role {
-    admin = 'Admin',
-    moderator = 'Moderator',
-    user = 'User',
-}
+import { Role } from "./roles.model";
+
 
 export interface User {
     email: string;

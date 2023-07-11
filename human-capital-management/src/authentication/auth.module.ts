@@ -11,9 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from "@angular/platform-browser";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
-import { LocalStorageService } from "src/services/local-storage.service";
-import { TokenStorageService } from "src/services/token-storage.service";
-import { Role } from "src/helpers/user";
+import { LocalStorageService } from "src/shared/services/local-storage.service";
+import { Role } from "src/shared/models/roles.model";
 
 const routes: Routes = [
     {
@@ -36,8 +35,8 @@ const routes: Routes = [
         path: 'register',
         canMatch: [
             () => {
-                const user = inject(TokenStorageService).getUser();
-                if (user.user.roles === Role.admin) {
+                const user = inject(LocalStorageService).getUser();
+                if (user?.role === Role.admin) {
                     return true;
                 } else {
                     return false;

@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from 'src/authentication/auth.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { httpInterceptorProviders } from 'src/authentication/interceptors/auth.interceptor';
+import { httpInterceptorProviders } from 'src/shared/interceptors/auth.interceptor';
 
 @NgModule({
     declarations: [
