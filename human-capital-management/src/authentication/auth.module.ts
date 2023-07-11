@@ -13,6 +13,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { LocalStorageService } from "../shared/services/local-storage.service";
 import { Role } from "../shared/models/roles.model";
+import { EmployeeListComponent } from "../employees/employee-list/employee-list.component";
 
 const routes: Routes = [
     {
@@ -60,6 +61,10 @@ const routes: Routes = [
             }
         ],
         component: DashboardComponent
+    },
+    {
+        path: 'employees',
+        component: EmployeeListComponent
     },
     {
         path: '**',
