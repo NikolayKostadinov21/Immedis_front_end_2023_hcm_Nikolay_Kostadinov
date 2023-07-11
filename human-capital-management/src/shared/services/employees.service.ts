@@ -10,11 +10,11 @@ import { AUTH_API } from "../helpers/constants";
 export class EmployeeService {
 
     constructor(
-        private httpClient: HttpClient,
+        private httpClient: HttpClient
     ) { }
 
-    getAll(): Observable<User> {
-        return this.httpClient.get<User>(AUTH_API + '/users');
+    getAll(): Observable<User[]> {
+        return this.httpClient.get<User[]>(AUTH_API + '/users');
     }
 
     getById(employeeId: number): Observable<User> {
