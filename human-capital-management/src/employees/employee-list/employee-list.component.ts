@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { ViewChild } from '@angular/core';
-import { MatSort, Sort } from '@angular/material/sort';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { EmployeeService } from '../../shared/services/employees.service';
 import { User } from '../../shared/models/user.model';
@@ -13,14 +12,12 @@ import { User } from '../../shared/models/user.model';
 })
 export class EmployeeListComponent implements OnInit {
 
-    employees = new Array<User>();
-    displayedColumns: string[] = ['id', 'name', 'weight', 'symbol'];
+    displayedColumns: string[] = ['email', 'firstName', 'secondName', 'role', 'department', 'salary', 'age'];
     dataSource = new MatTableDataSource<User>();
 
     @ViewChild(MatSort) sort!: MatSort;
 
     constructor(
-        private liveAnnouncer: LiveAnnouncer,
         private employeeService: EmployeeService
     ) { }
 
@@ -28,21 +25,13 @@ export class EmployeeListComponent implements OnInit {
         this.getAllEmployees();
     }
 
+    ngAfterViewInit(): void {
+        this.dataSource.sort = this.sort;
+    }
+
     getAllEmployees(): void {
         this.employeeService.getAll().subscribe(data => {
             this.dataSource.data = data;
         });
-    }
-
-    ngAfterViewInit() {
-        this.dataSource.sort = this.sort;
-    }
-
-    announceSortChange(sortState: Sort) {
-        if (sortState.direction) {
-            this.liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-        } else {
-            this.liveAnnouncer.announce('Sorting cleared');
-        }
     }
 }

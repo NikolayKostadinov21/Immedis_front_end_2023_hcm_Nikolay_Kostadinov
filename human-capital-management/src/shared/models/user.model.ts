@@ -9,6 +9,5 @@ export interface User {
     lastname?: string;
     age?: number;
     department?: string;
-    records?: string[];
     salary?: number;
 }
