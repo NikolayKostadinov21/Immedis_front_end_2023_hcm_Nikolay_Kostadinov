@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
-import { Observable, shareReplay } from "rxjs";
+import { Observable } from "rxjs";
 import { AUTH_API } from '../helpers/constants';
-import { LocalStorageService } from "src/shared/services/local-storage.service";
+import { LocalStorageService } from "../../shared/services/local-storage.service";
 import { Router } from "@angular/router";
-import { UserData } from "src/shared/models/userdata.model";
-import { User } from "src/shared/models/user.model";
+import { UserData } from "../../shared/models/userdata.model";
+import { User } from "../../shared/models/user.model";
 
 @Injectable({
     providedIn: 'root'
@@ -29,9 +29,7 @@ export class AuthService {
         return this.httpClient.post<UserData>(AUTH_API + '/signin', {
             email,
             password
-        }).pipe(
-            shareReplay()
-        );
+        });
     }
 
     /**
@@ -48,9 +46,7 @@ export class AuthService {
             role,
             firstName,
             secondName
-        }).pipe(
-            shareReplay()
-        );
+        });
     }
 
     /**

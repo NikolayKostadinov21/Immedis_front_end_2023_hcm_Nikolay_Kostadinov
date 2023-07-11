@@ -4,15 +4,15 @@ import { SignUpComponent } from "./sign-up/sign-up.component";
 import { Router, RouterModule, Routes } from "@angular/router";
 import { HttpClientModule } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
-import { DashboardComponent } from "src/dashboard/dashboard.component";
+import { DashboardComponent } from "../dashboard/dashboard.component";
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from "@angular/platform-browser";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
-import { LocalStorageService } from "src/shared/services/local-storage.service";
-import { Role } from "src/shared/models/roles.model";
+import { LocalStorageService } from "../shared/services/local-storage.service";
+import { Role } from "../shared/models/roles.model";
 
 const routes: Routes = [
     {

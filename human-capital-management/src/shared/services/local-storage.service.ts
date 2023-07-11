@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ID_TOKEN, USER_KEY } from 'src/shared/helpers/constants';
-import { User } from 'src/shared/models/user.model';
+import { ID_TOKEN, USER_KEY } from '../../shared/helpers/constants';
+import { User } from '../../shared/models/user.model';
 
 @Injectable({
     providedIn: 'root'
@@ -47,11 +47,20 @@ export class LocalStorageService {
     }
 
 
+    /**
+     * Adding user's key pair information in the local storage
+     * @param {User} user
+     */
     saveUser(user: User): void {
         localStorage.removeItem(USER_KEY);
         localStorage.setItem(USER_KEY, JSON.stringify(user));
     }
 
+
+    /**
+     * Returns user's information from the local storage
+     * @return {User}
+     */
     getUser(): User | undefined {
         const user = localStorage.getItem(USER_KEY);
         if (user) {

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
-import { Role } from 'src/shared/models/roles.model';
+import { Role } from '../../shared/models/roles.model';
 
 @Component({
   selector: 'app-sign-up',
