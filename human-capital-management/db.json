@@ -22,6 +22,14 @@
       "firstName": "Nikolay",
       "secondName": "Kostadinov",
       "id": 4
+    },
+    {
+      "email": "test2@gmail.com",
+      "password": "$2a$10$Rr21yGlpHMZwjgbcPib5h.2viehCUxCgYtLNAWm7CRx53nTV3ZHje",
+      "roles": "Moderator",
+      "firstName": "test",
+      "secondName": "test",
+      "id": 5
     }
   ]
 }

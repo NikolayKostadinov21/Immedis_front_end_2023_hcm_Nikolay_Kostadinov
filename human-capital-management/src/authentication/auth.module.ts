@@ -12,6 +12,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { LocalStorageService } from "src/services/local-storage.service";
+import { TokenStorageService } from "src/services/token-storage.service";
+import { Role } from "src/helpers/user";
 
 const routes: Routes = [
     {
@@ -32,7 +34,16 @@ const routes: Routes = [
     },
     {
         path: 'register',
-        // @audit admin guard here
+        canMatch: [
+            () => {
+                const user = inject(TokenStorageService).getUser();
+                if (user.user.roles === Role.admin) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        ],
         component: SignUpComponent
     },
     {

@@ -44,6 +44,7 @@ export class SignInComponent implements OnInit {
                 console.log('User logged in!');
                 this.tokenStorage.saveAccessToken(user.accessToken);
                 this.tokenStorage.saveUser(user);
+                console.log(user.user.roles)
                 this.isLoginFailed = false;
                 this.isLoggedIn = true;
                 this.router.navigate(['./dashboard']);
