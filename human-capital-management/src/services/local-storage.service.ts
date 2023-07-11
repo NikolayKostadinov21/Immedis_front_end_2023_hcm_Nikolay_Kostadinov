@@ -32,6 +32,14 @@ export class LocalStorageService {
 
     /**
      * Remove all key-value pairs from the web browser's localStorage object.
+     * @return {boolean}
+     */
+    hasTokenExpired(): boolean {
+        return Date.now() >= (JSON.parse(atob(this.getToken()!.split('.')[1]))).exp * 1000;
+    }
+
+    /**
+     * Remove all key-value pairs from the web browser's localStorage object.
      */
     signOut(): void {
         localStorage.clear();
