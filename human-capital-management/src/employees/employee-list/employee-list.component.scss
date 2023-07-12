@@ -1,7 +1,54 @@
 .container {
-    max-width: 80%;
+    width: 95%;
+    margin: 0 auto;
 }
-  
-th.mat-sort-header-sorted {
-    color: black;
+
+table.mat-elevation-z8 {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-employees th,
+.table-employees td {
+    padding: 12px;
+    text-align: left;
+}
+
+.table-employees th {
+    background-color: #f2f2f2;
+}
+
+.table-employees td {
+    border-bottom: 1px solid #ddd;
+}
+
+.mat-paginator {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+
+    table.mat-elevation-z8 {
+        width: 100%;
+    }
+
+    .table-employees th,
+    .table-employees td {
+        padding: 8px;
+        font-size: 12px;
+    }
+}
+
+.button-container {
+    display: flex;
+}
+
+.button-container button {
+    margin-right: 7px;
 }
