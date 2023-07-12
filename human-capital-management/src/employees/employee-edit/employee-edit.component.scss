@@ -1,5 +1,47 @@
-.socialMediaFlex {
+.login-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+.login-content {
+    width: 700px;
+    height: 235px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 20px;
+}
+
+.form-field {
+    width: calc(33.33% - 10px);
+    display: flex;
+    align-items: center;
+}
+
+.mat-form-field {
+    width: 100%;
+    margin-right: 10px;
+}
+
+.mat-icon {
+    margin-right: 10px;
+}
+
+mat-divider {
+    margin: 20px 0;
+}
+
+mat-dialog-actions {
+    justify-content: center;
+    margin-top: 20px;
 }

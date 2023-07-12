@@ -14,9 +14,7 @@ export class EmployeeEditComponent {
         private dialogRef: MatDialogRef<EmployeeEditComponent>,
         private employeeService: EmployeeService,
         @Inject(MAT_DIALOG_DATA) private data: any
-    ) {
-
-    }
+    ) { }
 
     editEmployeeForm = new FormGroup({
         firstName: new FormControl(this.data.user.firstName),
