@@ -16,3 +16,6 @@
 
 ---
 The Architecture of the project is the way it is because it's a small/medium enterprise
+
+---
+Email doesn't have validator because he already have from the json-server

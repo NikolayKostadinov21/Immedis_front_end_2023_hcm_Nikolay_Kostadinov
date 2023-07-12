@@ -6,18 +6,30 @@
             <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
                 <mat-form-field>
                     <input formControlName="email" type="text" matInput placeholder="Email">
+                    <mat-error>
+                        This field is required
+                    </mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
                     <input formControlName="password" type="text" matInput placeholder="Password">
+                    <mat-error>
+                        This field is required
+                    </mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
                     <input formControlName="firstName" type="text" matInput placeholder="First Name">
+                    <mat-error>
+                        This field is required with minimal length of 3 characters
+                    </mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
                     <input formControlName="lastName" type="text" matInput placeholder="Last Name">
+                    <mat-error>
+                        This field is required with minimal length of 3 characters
+                    </mat-error>
                 </mat-form-field>
 
                 <mat-form-field>
@@ -27,6 +39,30 @@
                             {{role}}
                         </mat-option>
                     </mat-select>
+                    <mat-error>
+                        This field is required
+                    </mat-error>
+                </mat-form-field>
+                
+                <mat-form-field>
+                    <input formControlName="department" type="text" matInput placeholder="Department">
+                    <mat-error>
+                        This field is required with minimal length of 5 characters
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="salary" type="number" matInput placeholder="Salary">
+                    <mat-error>
+                        This field is required with a number greater or equal 1000
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="age" type="number" matInput placeholder="Age">
+                    <mat-error>
+                        This field is required with a number greater or equal 18
+                    </mat-error>
                 </mat-form-field>
 
                 <div class="button">

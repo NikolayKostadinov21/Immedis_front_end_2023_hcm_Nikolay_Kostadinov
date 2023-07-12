@@ -39,13 +39,24 @@ export class AuthService {
      * @param {string} password
      * @returns {Observable<User>}
      */
-    signUp(email: string, password: string, role: string, firstName: string, lastName: string): Observable<User> {
+    signUp(
+        email: string,
+        password: string,
+        role: string,
+        firstName: string,
+        lastName: string,
+        department: string,
+        salary: number,
+        age: number): Observable<User> {
         return this.httpClient.post<User>(AUTH_API + '/signup', {
             email,
             password,
             role,
             firstName,
-            lastName
+            lastName,
+            department,
+            salary,
+            age
         });
     }
 

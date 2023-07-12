@@ -7,17 +7,18 @@
                 <div class="fieldsContainer">
                     <mat-form-field>
                         <input formControlName="email" type="text" matInput placeholder="Email">
+                        <mat-error>
+                            This field is required
+                        </mat-error>
                     </mat-form-field>
 
                     <mat-form-field>
                         <input formControlName="password" type="text" matInput placeholder="Password">
+                        <mat-error >
+                            This field is required
+                        </mat-error>
                     </mat-form-field>
                 </div>
-
-                <p class="error">
-                    error
-                </p>
-
                 <div class="button">
                     <button type="submit" mat-raised-button>Sign In</button>
                 </div>

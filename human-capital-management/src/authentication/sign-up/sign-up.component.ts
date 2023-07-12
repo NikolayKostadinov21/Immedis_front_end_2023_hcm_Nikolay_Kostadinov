@@ -5,9 +5,9 @@ import { Role } from '../../shared/models/roles.model';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+    selector: 'app-sign-up',
+    templateUrl: './sign-up.component.html',
+    styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent {
 
@@ -18,32 +18,46 @@ export class SignUpComponent {
             validators: [Validators.required]
         }),
         password: new FormControl('', {
-            validators: [Validators.required],
+            validators: [Validators.required]
         }),
         firstName: new FormControl('', {
-            validators: [Validators.required],
+            validators: [Validators.required, Validators.minLength(3)]
         }),
         lastName: new FormControl('', {
-            validators: [Validators.required],
+            validators: [Validators.required, Validators.minLength(3)]
         }),
         role: new FormControl('', {
-            validators: [Validators.required],
+            validators: [Validators.required]
         }),
-        department: new FormControl(''),
-        salary: new FormControl(''),
-        age: new FormControl('')
+        department: new FormControl('', {
+            validators: [Validators.minLength(5)]
+        }),
+        salary: new FormControl(null, {
+            validators: [Validators.min(1000)]
+        }),
+        age: new FormControl(null, {
+            validators: [Validators.min(18)]
+        })
     });
 
     constructor(
         private authService: AuthService,
         private router: Router
-    ) { 
+    ) {
         this.roles = Object.values(Role);
     }
 
     onSubmit(): void {
-        const { email, password, firstName, lastName, role } = this.signUpForm.value;
-        this.authService.signUp(email!, password!, role!, firstName!, lastName!).subscribe();
+        const { email, password, firstName, lastName, role, department, salary, age } = this.signUpForm.value;
+        this.authService.signUp(
+            email!,
+            password!,
+            role!,
+            firstName!,
+            lastName!,
+            department!,
+            salary!,
+            age!).subscribe();
         this.router.navigate(['./employees']);
     }
 }
