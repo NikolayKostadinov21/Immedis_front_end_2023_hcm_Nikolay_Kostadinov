@@ -26,8 +26,8 @@
     },
     {
       "email": "test3@gmail.com",
-      "password": "$2a$10$M8dm14B0m75myVKrx2pT8.Nt5RNI5QhBV4ISc2buvndjdwVx2ZpiG",
-      "role": "User",
+      "password": "$2a$10$hCbInnu1U5gdLuGxGyYgFu6qIq68fa7ioIC78II7VPtGjMpaTiV.e",
+      "role": "",
       "firstName": "",
       "secondName": "testi",
       "id": 3,

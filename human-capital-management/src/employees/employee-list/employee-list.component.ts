@@ -17,7 +17,7 @@ import { Role } from '../../shared/models/roles.model';
 export class EmployeeListComponent implements OnInit {
 
     displayedColumns: string[] = ['email', 'firstName', 'secondName', 'role', 'department', 'salary', 'age', 'action'];
-    dataSource = new MatTableDataSource<User>();
+    dataSource = new MatTableDataSource<User>([]);
     currentUser!: User | undefined;
     isCurrentUserAdminOrModerator!: boolean;
     isCurrentUserAdmin!: boolean;
@@ -49,7 +49,7 @@ export class EmployeeListComponent implements OnInit {
 
     getAllEmployees(): void {
         this.employeeService.getAll().subscribe(data => {
-            this.dataSource.data = data;
+            this.dataSource.data = [...data];
         });
     }
 
@@ -60,6 +60,14 @@ export class EmployeeListComponent implements OnInit {
 
         dialogRef.afterClosed().subscribe(_ => {
             console.log('The dialog was closed');
+        });
+    }
+
+    deleteEmployee(userId: number): void {
+        this.employeeService.deleteById(userId).subscribe(() => {
+            this.dataSource.data = this.dataSource.data.filter(
+                (user: User) => user.id !== userId
+            );
         });
     }
 }

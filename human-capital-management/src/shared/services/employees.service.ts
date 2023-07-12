@@ -33,4 +33,8 @@ export class EmployeeService {
             }
         );
     }
+
+    deleteById(employeeId: number): Observable<User> {
+        return this.httpClient.delete<User>(AUTH_API + `/users/${employeeId}`);
+    }
 }

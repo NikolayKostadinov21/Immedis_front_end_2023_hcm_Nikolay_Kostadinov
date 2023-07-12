@@ -64,7 +64,7 @@
             </th>
             <td mat-cell *matCellDef="let user">
                 <button md-raised-button [disabled]="!isCurrentUserAdminOrModerator" (click)="editEmployee(user.id)">Edit</button>
-                <button md-raised-button [disabled]="!isCurrentUserAdmin">Delete</button>
+                <button md-raised-button [disabled]="!isCurrentUserAdmin" (click)="deleteEmployee(user.id)">Delete</button>
             </td>
         </ng-container>
 
