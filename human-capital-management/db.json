@@ -20,7 +20,15 @@
       "id": 6,
       "department": "FE",
       "salary": "1",
-      "age": "11"
+      "age": "1"
+    },
+    {
+      "email": "test2@gmail.com",
+      "password": "$2a$10$/zseCNUud1XiqHmPUytiYe8XnMG/YtmNce80iEITRMuKt0tGNGBeq",
+      "role": "User",
+      "firstName": "test2",
+      "lastName": "test2",
+      "id": 7
     }
   ]
 }

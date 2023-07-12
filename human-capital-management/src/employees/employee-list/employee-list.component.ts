@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { EmployeeEditComponent } from '../employee-edit/employee-edit.component';
 import { LocalStorageService } from '../../shared/services/local-storage.service';
 import { Role } from '../../shared/models/roles.model';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
     selector: 'app-employee-list',
@@ -24,6 +25,7 @@ export class EmployeeListComponent implements OnInit {
     usersMap = new Map<number, User>();
 
     @ViewChild(MatSort) sort!: MatSort;
+    @ViewChild(MatPaginator) paginator!: MatPaginator;
 
     constructor(
         private employeeService: EmployeeService,
@@ -47,6 +49,7 @@ export class EmployeeListComponent implements OnInit {
 
     ngAfterViewInit(): void {
         this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
     }
 
     getAllEmployees(): void {
@@ -67,6 +70,10 @@ export class EmployeeListComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe(data => {
+            const tempUserId = this.dataSource.data.find(user => user.id === userId);
+            console.log(tempUserId!.id);
+            console.log(data)
+            this.dataSource.data[tempUserId!.id] = { ...data };
             this.changeDetectorRefs.detectChanges();
             this.usersMap.set(userId, data);
             console.log('The dialog was closed');
@@ -80,5 +87,14 @@ export class EmployeeListComponent implements OnInit {
             );
             this.usersMap.delete(userId);
         });
+    }
+
+    applyFilter(event: Event) {
+        const filterValue = (event.target as HTMLInputElement).value;
+        this.dataSource.filter = filterValue.trim().toLowerCase();
+        console.log(this.dataSource.filter);
+        if (this.dataSource.paginator) {
+            this.dataSource.paginator.firstPage();
+        }
     }
 }
