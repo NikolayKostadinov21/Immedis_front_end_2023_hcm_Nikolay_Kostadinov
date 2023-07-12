@@ -17,14 +17,13 @@ import { Role } from '../../shared/models/roles.model';
 export class EmployeeListComponent implements OnInit {
 
     displayedColumns: string[] = ['email', 'firstName', 'lastName', 'role', 'department', 'salary', 'age', 'action'];
-    // dataSource = new MatTableDataSource<User>([]);
+    dataSource = new MatTableDataSource<User>([]);
     currentUser!: User | undefined;
     isCurrentUserAdminOrModerator!: boolean;
     isCurrentUserAdmin!: boolean;
     usersMap = new Map<number, User>();
 
     @ViewChild(MatSort) sort!: MatSort;
-    @ViewChild(MatTableDataSource) dataSource!: MatTableDataSource<User>;
 
     constructor(
         private employeeService: EmployeeService,
@@ -68,7 +67,6 @@ export class EmployeeListComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe(data => {
-            // this.dataSource.data = this.dataSource.data.find(user => user.id === userId);
             this.changeDetectorRefs.detectChanges();
             this.usersMap.set(userId, data);
             console.log('The dialog was closed');
