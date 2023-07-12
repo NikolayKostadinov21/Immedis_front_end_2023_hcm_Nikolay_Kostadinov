@@ -15,6 +15,7 @@ import { LocalStorageService } from "../shared/services/local-storage.service";
 import { Role } from "../shared/models/roles.model";
 import { EmployeeListComponent } from "../employees/employee-list/employee-list.component";
 import { ChangePasswordComponent } from "src/employees/change-password/change-password.component";
+import { MatIconModule } from "@angular/material/icon";
 
 const routes: Routes = [
     {
@@ -84,6 +85,7 @@ const modulesMaterial = [
     MatSelectModule,
     MatInputModule,
     MatFormFieldModule,
+    MatIconModule
 ];
 
 @NgModule({
