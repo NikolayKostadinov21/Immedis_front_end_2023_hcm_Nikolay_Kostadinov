@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
 import { ChangePasswordComponent } from "./change-password/change-password.component";
 
 const routes: Routes = [];
@@ -32,7 +33,8 @@ const modulesMaterial = [
     MatIconModule,
     MatButtonModule,
     MatDividerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule
 ];
 
 @NgModule({

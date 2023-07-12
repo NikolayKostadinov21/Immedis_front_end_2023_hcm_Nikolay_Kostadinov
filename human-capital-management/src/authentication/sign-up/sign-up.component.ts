@@ -30,13 +30,13 @@ export class SignUpComponent {
             validators: [Validators.required]
         }),
         department: new FormControl('', {
-            validators: [Validators.minLength(5)]
+            validators: [Validators.required, Validators.minLength(5)]
         }),
         salary: new FormControl(null, {
-            validators: [Validators.min(1000)]
+            validators: [Validators.required, Validators.min(1000)]
         }),
         age: new FormControl(null, {
-            validators: [Validators.min(18)]
+            validators: [Validators.required, Validators.min(18)]
         })
     });
 

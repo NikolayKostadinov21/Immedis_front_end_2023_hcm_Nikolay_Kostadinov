@@ -11,7 +11,7 @@
                         <mat-form-field>
                             <mat-icon matPrefix>person_outline</mat-icon>
                             <input type="text" matInput placeholder="First Name" formControlName="firstName">
-                            <mat-error>error</mat-error>
+                            <mat-error>This field is required with minimal length of 3 characters</mat-error>
                         </mat-form-field>
                     </div>
 
@@ -19,15 +19,21 @@
                         <mat-form-field>
                             <mat-icon matPrefix>person_outline</mat-icon>
                             <input type="text" matInput placeholder="Last Name" formControlName="lastName">
-                            <mat-error>error</mat-error>
+                            <mat-error>This field is required with minimal length of 3 characters</mat-error>
                         </mat-form-field>
                     </div>
 
                     <div class="form-field">
                         <mat-form-field>
-                            <mat-icon matPrefix>person_outline</mat-icon>
-                            <input type="text" matInput placeholder="Role" formControlName="role">
-                            <mat-error>error</mat-error>
+                            <mat-label>Role</mat-label>
+                            <mat-select formControlName="role" placeholder="Select role">
+                                <mat-option *ngFor="let role of roles" [value]="role">
+                                    {{role}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error>
+                                This field is required
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </div>
@@ -37,7 +43,7 @@
                         <mat-form-field>
                             <mat-icon matPrefix>person_outline</mat-icon>
                             <input type="text" matInput placeholder="Department" formControlName="department">
-                            <mat-error>error</mat-error>
+                            <mat-error>This field is required with minimal length of 5 characters</mat-error>
                         </mat-form-field>
                     </div>
 
@@ -45,7 +51,7 @@
                         <mat-form-field>
                             <mat-icon matPrefix>person_outline</mat-icon>
                             <input type="text" matInput placeholder="Salary" formControlName="salary">
-                            <mat-error>error</mat-error>
+                            <mat-error>This field is required with a number greater or equal 1000</mat-error>
                         </mat-form-field>
                     </div>
 
@@ -53,7 +59,7 @@
                         <mat-form-field>
                             <mat-icon matPrefix>person_outline</mat-icon>
                             <input type="text" matInput placeholder="Age" formControlName="age">
-                            <mat-error>error</mat-error>
+                            <mat-error>This field is required with a number greater or equal 18</mat-error>
                         </mat-form-field>
                     </div>
                 </div>
@@ -65,7 +71,7 @@
 <mat-divider></mat-divider>
 
 <div mat-dialog-actions align="center">
-    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button (click)="cancel()">Cancel</button>
     <button mat-button [disabled]="editEmployeeForm.invalid || !editEmployeeForm.dirty" type="submit" color="primary"
         (click)="onSubmit()">Submit</button>
 </div>

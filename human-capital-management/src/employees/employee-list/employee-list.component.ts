@@ -71,10 +71,12 @@ export class EmployeeListComponent implements OnInit {
 
         dialogRef.afterClosed().subscribe({
             next: (data) => {
-                const tempUserId = this.dataSource.data.find(user => user.id === userId);
-                this.dataSource.data[tempUserId!.id] = {...data};
-                this.usersMap.set(userId, data);
-                this.changeDetectorRefs.detectChanges();
+                if (data) {
+                    const tempUserId = this.dataSource.data.find(user => user.id === userId);
+                    this.dataSource.data[tempUserId!.id] = { ...data };
+                    this.usersMap.set(userId, data);
+                    this.changeDetectorRefs.detectChanges();
+                }
             }
         });
     }

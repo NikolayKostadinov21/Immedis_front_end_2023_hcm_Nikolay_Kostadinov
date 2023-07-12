@@ -1,7 +1,8 @@
 import { Component, Inject } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EmployeeService } from '../../shared/services/employees.service';
+import { Role } from '../../shared/models/roles.model';
 
 @Component({
   selector: 'app-employee-edit',
@@ -10,19 +11,35 @@ import { EmployeeService } from '../../shared/services/employees.service';
 })
 export class EmployeeEditComponent {
 
+    roles: Role[] = [];
+
     constructor(
         private dialogRef: MatDialogRef<EmployeeEditComponent>,
         private employeeService: EmployeeService,
         @Inject(MAT_DIALOG_DATA) private data: any
-    ) { }
+    ) { 
+        this.roles = Object.values(Role);
+    }
 
     editEmployeeForm = new FormGroup({
-        firstName: new FormControl(this.data.user.firstName),
-        lastName: new FormControl(this.data.user.lastName),
-        role: new FormControl(this.data.user.role),
-        department: new FormControl(this.data.user.department),
-        salary: new FormControl(this.data.user.salary),
-        age: new FormControl(this.data.user.age)
+        firstName: new FormControl(this.data.user.firstName, {
+            validators: [Validators.required, Validators.minLength(3)]
+        }),
+        lastName: new FormControl(this.data.user.lastName, {
+            validators: [Validators.required, Validators.minLength(3)]
+        }),
+        role: new FormControl(this.data.user.role, {
+            validators: [Validators.required]
+        }),
+        department: new FormControl(this.data.user.department, {
+            validators: [Validators.required, Validators.minLength(5)]
+        }),
+        salary: new FormControl(this.data.user.salary, {
+            validators: [Validators.required, Validators.min(1000)]
+        }),
+        age: new FormControl(this.data.user.age, {
+            validators: [Validators.required, Validators.min(18)]
+        })
     });
 
     onSubmit(): void {
@@ -31,7 +48,7 @@ export class EmployeeEditComponent {
         this.dialogRef.close(this.editEmployeeForm.value);
     }
 
-    onNoClick(): void {
+    cancel(): void {
         this.dialogRef.close();
     }
 }

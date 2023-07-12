@@ -37,9 +37,12 @@
       "email": "test1@gmail.com",
       "password": "$2a$10$E0OnZuF1fh.hg8S4Q4Mcqe1bwM45GRf03gpAko2FAM1c9zp.CLemy",
       "role": "User",
-      "firstName": "test",
+      "firstName": "testa",
       "lastName": "test",
-      "id": 8
+      "id": 8,
+      "department": "FEBeS",
+      "salary": "1233",
+      "age": "19"
     }
   ]
 }
