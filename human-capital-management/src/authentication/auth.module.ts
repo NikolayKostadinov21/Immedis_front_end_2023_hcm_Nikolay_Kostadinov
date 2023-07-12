@@ -14,6 +14,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { LocalStorageService } from "../shared/services/local-storage.service";
 import { Role } from "../shared/models/roles.model";
 import { EmployeeListComponent } from "../employees/employee-list/employee-list.component";
+import { ChangePasswordComponent } from "src/employees/change-password/change-password.component";
 
 const routes: Routes = [
     {
@@ -65,6 +66,10 @@ const routes: Routes = [
     {
         path: 'employees',
         component: EmployeeListComponent
+    },
+    {
+        path: 'change-password',
+        component: ChangePasswordComponent
     },
     {
         path: '**',

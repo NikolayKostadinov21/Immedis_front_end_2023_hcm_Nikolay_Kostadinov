@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ChangePasswordComponent } from "./change-password/change-password.component";
 
 const routes: Routes = [];
 
@@ -46,7 +47,8 @@ const modulesMaterial = [
     ],
     declarations: [
         EmployeeListComponent,
-        EmployeeEditComponent
+        EmployeeEditComponent,
+        ChangePasswordComponent
     ]
 })
 

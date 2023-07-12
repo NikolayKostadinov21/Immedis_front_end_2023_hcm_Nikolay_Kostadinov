@@ -69,14 +69,13 @@ export class EmployeeListComponent implements OnInit {
             }
         });
 
-        dialogRef.afterClosed().subscribe(data => {
-            const tempUserId = this.dataSource.data.find(user => user.id === userId);
-            console.log(tempUserId!.id);
-            console.log(data)
-            this.dataSource.data[tempUserId!.id] = { ...data };
-            this.changeDetectorRefs.detectChanges();
-            this.usersMap.set(userId, data);
-            console.log('The dialog was closed');
+        dialogRef.afterClosed().subscribe({
+            next: (data) => {
+                const tempUserId = this.dataSource.data.find(user => user.id === userId);
+                this.dataSource.data[tempUserId!.id] = {...data};
+                this.usersMap.set(userId, data);
+                this.changeDetectorRefs.detectChanges();
+            }
         });
     }
 
@@ -92,7 +91,6 @@ export class EmployeeListComponent implements OnInit {
     applyFilter(event: Event) {
         const filterValue = (event.target as HTMLInputElement).value;
         this.dataSource.filter = filterValue.trim().toLowerCase();
-        console.log(this.dataSource.filter);
         if (this.dataSource.paginator) {
             this.dataSource.paginator.firstPage();
         }

@@ -28,7 +28,10 @@
       "role": "User",
       "firstName": "test2",
       "lastName": "test2",
-      "id": 7
+      "id": 7,
+      "department": "1123123",
+      "salary": "112312312",
+      "age": "112312312"
     }
   ]
 }
