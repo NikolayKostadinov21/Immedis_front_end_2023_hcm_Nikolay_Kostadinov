@@ -1,40 +1,26 @@
 {
   "users": [
     {
-      "email": "niko@gmail.com",
-      "password": "$2a$10$LnjuAQ23w.Ga/FD/MrdRU.0O5g1XNIPlSXTa/3jrkzWMNQvL7dbPO",
+      "email": "test3@gmail.com",
+      "password": "$2a$10$dT2OSp2Sjt96vxyPIg3GSuGZ94AeyF5tNM63qxTEO/tnPwB0kt9we",
       "role": "Admin",
-      "firstName": "",
-      "secondName": "kostadinov",
-      "id": 1,
-      "lastName": "",
-      "department": "",
-      "salary": "",
-      "age": null
+      "firstName": "test",
+      "lastName": "test",
+      "id": 5,
+      "department": "BE",
+      "salary": "5000",
+      "age": "1"
     },
     {
       "email": "test@gmail.com",
-      "password": "$2a$10$xZtExX7fDqCRf6UIk9/8m.f.sfFakVKwdg0pG/acxpo.vyy171fqy",
-      "role": "Moderator",
-      "firstName": "testian",
-      "secondName": "testov",
-      "id": 2,
-      "lastName": "testovv",
-      "department": "fe",
-      "salary": "123",
-      "age": "34"
-    },
-    {
-      "email": "test3@gmail.com",
-      "password": "$2a$10$hCbInnu1U5gdLuGxGyYgFu6qIq68fa7ioIC78II7VPtGjMpaTiV.e",
-      "role": "",
-      "firstName": "",
-      "secondName": "testi",
-      "id": 3,
-      "lastName": "",
-      "department": "",
-      "salary": "",
-      "age": null
+      "password": "$2a$10$bR7Cm9sEQcibeRQ/A1dhNOMMiHcZdA0RgXu/zcFanDOVY40ra9uQ2",
+      "role": "Admin",
+      "firstName": "fn",
+      "lastName": "ln",
+      "id": 6,
+      "department": "FE",
+      "salary": "1",
+      "age": "1"
     }
   ]
 }

@@ -1,12 +1,10 @@
-<h1 mat-dialog-title>Hi</h1>
+
 <div mat-dialog-content>
     <div class="login-container">
         <div class="login-content">
             <mat-toolbar class="login-toolbar" color="primary">REGISTER</mat-toolbar>
 
-            <mat-card>
-
-                <form [formGroup]="editEmployeeForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="editEmployeeForm">
 
                     <mat-form-field>
                         <mat-icon matPrefix>person_outline</mat-icon>
@@ -55,18 +53,14 @@
                             error
                         </mat-error>
                     </mat-form-field>
-
-                    <div class="socialMediaFlex">
-                        <button [disabled]="editEmployeeForm.invalid" type="submit" mat-raised-button color="primary">
-                            Submit
-                        </button>
-                    </div>
                 </form>
-            </mat-card>
         </div>
     </div>
 </div>
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button cdkFocusInitial>Ok</button>
+
+<mat-divider></mat-divider>
+
+<div mat-dialog-actions align="center">
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [disabled]="editEmployeeForm.invalid || !editEmployeeForm.dirty" type="submit" color="primary" (click)="onSubmit()">Submit</button>
 </div>

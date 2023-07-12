@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { Role } from '../../shared/models/roles.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -34,7 +35,8 @@ export class SignUpComponent {
     });
 
     constructor(
-        private authService: AuthService
+        private authService: AuthService,
+        private router: Router
     ) { 
         this.roles = Object.values(Role);
     }
@@ -42,5 +44,6 @@ export class SignUpComponent {
     onSubmit(): void {
         const { email, password, firstName, lastName, role } = this.signUpForm.value;
         this.authService.signUp(email!, password!, role!, firstName!, lastName!).subscribe();
+        this.router.navigate(['./employees']);
     }
 }

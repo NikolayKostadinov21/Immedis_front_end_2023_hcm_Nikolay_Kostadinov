@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -16,18 +16,21 @@ import { Role } from '../../shared/models/roles.model';
 })
 export class EmployeeListComponent implements OnInit {
 
-    displayedColumns: string[] = ['email', 'firstName', 'secondName', 'role', 'department', 'salary', 'age', 'action'];
-    dataSource = new MatTableDataSource<User>([]);
+    displayedColumns: string[] = ['email', 'firstName', 'lastName', 'role', 'department', 'salary', 'age', 'action'];
+    // dataSource = new MatTableDataSource<User>([]);
     currentUser!: User | undefined;
     isCurrentUserAdminOrModerator!: boolean;
     isCurrentUserAdmin!: boolean;
+    usersMap = new Map<number, User>();
 
     @ViewChild(MatSort) sort!: MatSort;
+    @ViewChild(MatTableDataSource) dataSource!: MatTableDataSource<User>;
 
     constructor(
         private employeeService: EmployeeService,
         private dialog: MatDialog,
-        private localStorageService: LocalStorageService
+        private localStorageService: LocalStorageService,
+        private changeDetectorRefs: ChangeDetectorRef
     ) {
         this.currentUser = this.localStorageService.getUser();
         if (this.currentUser?.role === Role.admin || this.currentUser?.role === Role.moderator) {
@@ -50,15 +53,24 @@ export class EmployeeListComponent implements OnInit {
     getAllEmployees(): void {
         this.employeeService.getAll().subscribe(data => {
             this.dataSource.data = [...data];
+            data.forEach(user => {
+                this.usersMap.set(user.id, user);
+            });
         });
     }
 
     editEmployee(userId: number): void {
         const dialogRef = this.dialog.open(EmployeeEditComponent, {
-            data: userId
+            data: {
+                userId: userId,
+                user: this.usersMap.get(userId)
+            }
         });
 
-        dialogRef.afterClosed().subscribe(_ => {
+        dialogRef.afterClosed().subscribe(data => {
+            // this.dataSource.data = this.dataSource.data.find(user => user.id === userId);
+            this.changeDetectorRefs.detectChanges();
+            this.usersMap.set(userId, data);
             console.log('The dialog was closed');
         });
     }
@@ -68,6 +80,7 @@ export class EmployeeListComponent implements OnInit {
             this.dataSource.data = this.dataSource.data.filter(
                 (user: User) => user.id !== userId
             );
+            this.usersMap.delete(userId);
         });
     }
 }
