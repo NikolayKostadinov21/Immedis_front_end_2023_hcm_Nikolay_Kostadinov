@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ChangePasswordService } from '../../shared/services/change-password.service';
+import { LocalStorageService } from 'src/shared/services/local-storage.service';
 
 @Component({
     selector: 'app-change-password',
@@ -8,8 +10,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ChangePasswordComponent {
 
-    constructor() {
-        
+    constructor(
+        private changePasswordService: ChangePasswordService,
+        private localStorageService: LocalStorageService
+    ) {
+
     }
 
     changePasswordForm = new FormGroup({
@@ -25,6 +30,8 @@ export class ChangePasswordComponent {
     });
 
     onSubmit(): void {
-        console.log('change password');
+        const currentUserId = this.localStorageService.getUser()?.id;
+        const { newPassword } = this.changePasswordForm.value;
+        this.changePasswordService.changeUserPassword(currentUserId!, newPassword!).subscribe();
     }
 }

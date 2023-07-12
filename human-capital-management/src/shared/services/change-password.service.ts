@@ -16,7 +16,9 @@ export class ChangePasswordService {
 
     changeUserPassword(employeeId: number, newPassword: string): Observable<User> {
         return this.httpClient.patch<User>(AUTH_API + `/users/${employeeId}`, 
-            newPassword
+            {
+                password: newPassword
+            }
         );
     }
 }

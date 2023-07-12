@@ -32,6 +32,14 @@
       "department": "1123123",
       "salary": "112312312",
       "age": "112312312"
+    },
+    {
+      "email": "test1@gmail.com",
+      "password": "$2a$10$E0OnZuF1fh.hg8S4Q4Mcqe1bwM45GRf03gpAko2FAM1c9zp.CLemy",
+      "role": "User",
+      "firstName": "test",
+      "lastName": "test",
+      "id": 8
     }
   ]
 }
