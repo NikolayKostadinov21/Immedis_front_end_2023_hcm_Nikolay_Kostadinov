@@ -4,11 +4,11 @@
         <mat-card-title>Sign In</mat-card-title>
         <mat-card-content>
             <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
-                <div class="fieldsContainer">                    
+                <div class="fieldsContainer">
                     <mat-form-field>
                         <input formControlName="email" type="text" matInput placeholder="Email">
                     </mat-form-field>
-    
+
                     <mat-form-field>
                         <input formControlName="password" type="text" matInput placeholder="Password">
                     </mat-form-field>
@@ -19,7 +19,7 @@
                 </p>
 
                 <div class="button">
-                    <button type="submit" mat-raised-button>Login</button>
+                    <button type="submit" mat-raised-button>Sign In</button>
                 </div>
             </form>
         </mat-card-content>
