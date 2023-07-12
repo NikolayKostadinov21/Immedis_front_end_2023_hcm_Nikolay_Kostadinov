@@ -20,4 +20,17 @@ export class EmployeeService {
     getById(employeeId: number): Observable<User> {
         return this.httpClient.get<User>(AUTH_API + `/users${employeeId}`);
     }
+
+    editById(employeeId: number, firstName: string, lastName: string, role: string, department: string, salary: string, age: number): Observable<User> {
+        return this.httpClient.patch<User>(AUTH_API + `/users/${employeeId}`, 
+            {
+                firstName,
+                lastName,
+                role,
+                department,
+                salary,
+                age
+            }
+        );
+    }
 }

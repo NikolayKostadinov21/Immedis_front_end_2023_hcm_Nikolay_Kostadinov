@@ -4,17 +4,37 @@
       "email": "niko@gmail.com",
       "password": "$2a$10$LnjuAQ23w.Ga/FD/MrdRU.0O5g1XNIPlSXTa/3jrkzWMNQvL7dbPO",
       "role": "Admin",
-      "firstName": "niko",
+      "firstName": "",
       "secondName": "kostadinov",
-      "id": 1
+      "id": 1,
+      "lastName": "",
+      "department": "",
+      "salary": "",
+      "age": null
     },
     {
       "email": "test@gmail.com",
       "password": "$2a$10$xZtExX7fDqCRf6UIk9/8m.f.sfFakVKwdg0pG/acxpo.vyy171fqy",
       "role": "Moderator",
-      "firstName": "test",
+      "firstName": "testian",
       "secondName": "testov",
-      "id": 2
+      "id": 2,
+      "lastName": "testovv",
+      "department": "fe",
+      "salary": "123",
+      "age": "34"
+    },
+    {
+      "email": "test3@gmail.com",
+      "password": "$2a$10$M8dm14B0m75myVKrx2pT8.Nt5RNI5QhBV4ISc2buvndjdwVx2ZpiG",
+      "role": "User",
+      "firstName": "",
+      "secondName": "testi",
+      "id": 3,
+      "lastName": "",
+      "department": "",
+      "salary": "",
+      "age": null
     }
   ]
 }

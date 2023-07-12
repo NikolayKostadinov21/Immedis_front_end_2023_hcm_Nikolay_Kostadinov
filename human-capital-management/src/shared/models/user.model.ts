@@ -1,6 +1,5 @@
 import { Role } from "./roles.model";
 
-
 export interface User {
     email: string;
     password: string;

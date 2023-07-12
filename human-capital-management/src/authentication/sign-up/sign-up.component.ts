@@ -28,7 +28,10 @@ export class SignUpComponent {
         role: new FormControl('', {
             validators: [Validators.required],
         }),
-    })
+        department: new FormControl(''),
+        salary: new FormControl(''),
+        age: new FormControl('')
+    });
 
     constructor(
         private authService: AuthService

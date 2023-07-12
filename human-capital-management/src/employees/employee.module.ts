@@ -10,6 +10,11 @@ import { EmployeeEditComponent } from "./employee-edit/employee-edit.component";
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 const routes: Routes = [];
 
@@ -18,14 +23,20 @@ const modulesMaterial = [
     MatSortModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule
 ];
 
 @NgModule({
     imports: [
         CommonModule,
         BrowserModule,
+        ReactiveFormsModule,
         ...modulesMaterial,
+        FormsModule,
         BrowserAnimationsModule,
         RouterModule.forChild(routes)
     ],

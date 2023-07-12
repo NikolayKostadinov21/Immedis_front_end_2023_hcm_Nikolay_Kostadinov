@@ -1,12 +1,72 @@
 <h1 mat-dialog-title>Hi</h1>
 <div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <mat-form-field>
-    <mat-label>Favorite Animal</mat-label>
-    <input matInput />
-  </mat-form-field>
+    <div class="login-container">
+        <div class="login-content">
+            <mat-toolbar class="login-toolbar" color="primary">REGISTER</mat-toolbar>
+
+            <mat-card>
+
+                <form [formGroup]="editEmployeeForm" (ngSubmit)="onSubmit()">
+
+                    <mat-form-field>
+                        <mat-icon matPrefix>person_outline</mat-icon>
+                        <input type="text" matInput placeholder="First Name" formControlName="firstName">
+                        <mat-error>
+                            error
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-icon matPrefix>person_outline</mat-icon>
+                        <input type="text" matInput placeholder="Last Name" formControlName="lastName">
+                        <mat-error>
+                            error
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-icon matPrefix>person_outline</mat-icon>
+                        <input type="text" matInput placeholder="Role" formControlName="role">
+                        <mat-error>
+                            error
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-icon matPrefix>person_outline</mat-icon>
+                        <input type="text" matInput placeholder="Department" formControlName="department">
+                        <mat-error>
+                            error
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-icon matPrefix>person_outline</mat-icon>
+                        <input type="text" matInput placeholder="Salary" formControlName="salary">
+                        <mat-error>
+                            error
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-icon matPrefix>person_outline</mat-icon>
+                        <input type="text" matInput placeholder="Age" formControlName="age">
+                        <mat-error>
+                            error
+                        </mat-error>
+                    </mat-form-field>
+
+                    <div class="socialMediaFlex">
+                        <button [disabled]="editEmployeeForm.invalid" type="submit" mat-raised-button color="primary">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </mat-card>
+        </div>
+    </div>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button cdkFocusInitial>Ok</button>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button cdkFocusInitial>Ok</button>
 </div>

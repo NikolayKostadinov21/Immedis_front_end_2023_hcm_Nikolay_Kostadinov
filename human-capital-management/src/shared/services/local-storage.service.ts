@@ -69,4 +69,18 @@ export class LocalStorageService {
 
         return undefined;
     }
+
+    /**
+     * Returns user's ID from the local storage
+     * @return {number | undefined}
+     */
+    getUserId(): number | undefined {
+        const user = localStorage.getItem(USER_KEY);
+        if (user) {
+            const userId = JSON.parse(user).id;
+            return userId;
+        }
+
+        return undefined;
+    }
 }
