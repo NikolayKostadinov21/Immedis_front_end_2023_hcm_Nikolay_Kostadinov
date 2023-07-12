@@ -9,7 +9,7 @@ import { User } from "../models/user.model";
 })
 export class ChangePasswordService {
     constructor(
-        private httpClient: HttpClient,
+        private httpClient: HttpClient
     ) {
 
     }

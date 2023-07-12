@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ChangePasswordService } from '../../shared/services/change-password.service';
-import { LocalStorageService } from 'src/shared/services/local-storage.service';
+import { LocalStorageService } from '../../shared/services/local-storage.service';
 
 @Component({
     selector: 'app-change-password',
