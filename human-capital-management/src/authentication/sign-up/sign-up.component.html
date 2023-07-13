@@ -43,7 +43,7 @@
                         This field is required
                     </mat-error>
                 </mat-form-field>
-                
+
                 <mat-form-field>
                     <input formControlName="department" type="text" matInput placeholder="Department">
                     <mat-error>
@@ -66,8 +66,12 @@
                 </mat-form-field>
 
             </form>
-            <div class="button">
-                <button type="submit" [disabled]="signUpForm.invalid || !signUpForm.dirty" mat-raised-button (click)="onSubmit()">Register</button>
+            <div class="button" id="registerButton">
+                <button type="submit" [disabled]="signUpForm.invalid || !signUpForm.dirty" mat-raised-button
+                    (click)="onSubmit()">Register</button>
+            </div>
+            <div class="button" id="cancel-button">
+                <button type="button" (click)="goBack()" mat-raised-button>Go Back</button>
             </div>
         </mat-card-content>
     </mat-card>

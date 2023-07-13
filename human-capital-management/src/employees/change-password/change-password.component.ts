@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ChangePasswordService } from '../../shared/services/change-password.service';
 import { LocalStorageService } from '../../shared/services/local-storage.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
     selector: 'app-change-password',
@@ -26,7 +28,10 @@ export class ChangePasswordComponent {
     constructor(
         private changePasswordService: ChangePasswordService,
         private localStorageService: LocalStorageService,
-        private formBuilder: FormBuilder
+        private formBuilder: FormBuilder,
+        private route: ActivatedRoute,
+        private router: Router,
+        private authService: AuthService
     ) { }
 
     changePasswordForm = this.formBuilder.group(
@@ -47,6 +52,10 @@ export class ChangePasswordComponent {
         const currentUserId = this.localStorageService.getUser()?.id;
         const { newPassword } = this.changePasswordForm.value;
         this.changePasswordService.changeUserPassword(currentUserId!, newPassword!).subscribe();
+
+
+        this.router.navigate(['../login'], {relativeTo:this.route});
+        this.authService.signOut();
     }
 
     ConfirmedValidator(controlName: string, matchingControlName: string) {
@@ -65,5 +74,9 @@ export class ChangePasswordComponent {
                 matchingControl.setErrors(null);
             }
         };
+    }
+
+    goBack(): void {
+        this.router.navigate(['./employees']);
     }
 }

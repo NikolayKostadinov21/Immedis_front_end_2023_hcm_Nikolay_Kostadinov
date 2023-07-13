@@ -42,7 +42,6 @@ mat-error {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
 }
 
 button[type="submit"]:hover {
@@ -54,6 +53,15 @@ button[type="submit"] {
     background-color: #673ab7;
     color: #fff;
     transition: background-color 0.3s ease;
+    margin-top: 50px;
+}
+
+button[type="button"] {
+    background-color: #673ab7;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    max-height: 25px;
+    color: #fff;
 }
 
 button[type="submit"]:disabled {

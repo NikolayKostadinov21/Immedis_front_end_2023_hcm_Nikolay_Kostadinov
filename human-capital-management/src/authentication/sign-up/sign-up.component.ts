@@ -62,4 +62,8 @@ export class SignUpComponent {
             this.router.navigate(['./employees']);
         }
     }
+
+    goBack(): void {
+        this.router.navigate(['./employees']);
+    }
 }
