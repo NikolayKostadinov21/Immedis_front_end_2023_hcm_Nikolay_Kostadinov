@@ -104,9 +104,11 @@ export class EmployeeListComponent implements OnInit {
     }
 
     navigateToSignUpPage(): void {
-        console.log('redirecting to register');
-        console.log(this.route)
         this.router.navigate(['register'], {relativeTo:this.route});
+    }
+
+    navigateToChangePasswordPage(): void {
+        this.router.navigate(['change-password'], {relativeTo:this.route});
     }
 
     logout(): void {

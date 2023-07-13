@@ -6,6 +6,9 @@
         <button mat-button (click)="navigateToSignUpPage()">Add Employee
             <mat-icon>add_box</mat-icon>
         </button>
+        <button mat-button (click)="navigateToChangePasswordPage()">Change Password
+            <mat-icon>password</mat-icon>
+        </button>
         <button mat-button (click)="logout()">Logout
             <mat-icon>logout</mat-icon>
         </button>
@@ -94,11 +97,11 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         <ng-container matColumnDef="noRecords">
             <td mat-footer-cell *matFooterCellDef>
-              No records found
+                The table is either empty or does not contain any records.
             </td>
-          </ng-container>
-          
-          <tr mat-footer-row *matFooterRowDef="!dataSource.filteredData.length ? ['noRecords'] : []"></tr>
+        </ng-container>
+
+        <tr mat-footer-row *matFooterRowDef="!dataSource.filteredData.length ? ['noRecords'] : []"></tr>
     </table>
 
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
