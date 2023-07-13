@@ -89,6 +89,20 @@ Human Capital Management is suitable for small and medium-sized companies lookin
 │   │   │
 ```
 
+
+
+## The core workflow and logic behind human capital resources
+Admins are the most privileged individuals as they have the ability to add, delete, and edit other admins, moderators, and users. The workflow for adding a new user is as follows:
+
+1. An admin creates a new user, who is a new employee in the company.
+The admin can create it from the register page: 
+![Register photo](human-capital-management/src/assets/icons/register.png)
+2. The new employee, depending on their role (admin, moderator, user), can immediately change their password.
+The user can change its password from here:
+![Change Password photo](human-capital-management/src/assets/icons/changePassword.png)
+3. Based on their permissions, they can then begin adding, editing, or filtering employees in the company.
+![Employees List](human-capital-management/src/assets/icons/employeesList.png)
+
 ## Authorization rules
 
 - Admin **can add, remove and edit** moderators and users
@@ -101,12 +115,9 @@ Human Capital Management is suitable for small and medium-sized companies lookin
 
 - Users **can only** see the admins, moderators and the other users
 
+## Additional Information
+- The project's architecture is influenced by its classification as a small/medium enterprise, shaping its current design and structure. That's why for example the services are all in one folder `shared/services/...` instead of putting each service in each component on its own.
 
----
-The Architecture of the project is the way it is because it's a small/medium enterprise
+- The reason why lazy loading isn't performed on **EmployeeListComponent**, **SignUpComponent**, **ChangePasswordComponent** and **EmployeesComponent** is because of the implementation of **canMatch** guard in **EmployeesComponent**
 
----
-Email doesn't have validator because he already have from the json-server
-
----
-The routes are put in auth.module.ts because there are authorizations
+- The **Email** control doesn't have validator because it already has from the json-server.
