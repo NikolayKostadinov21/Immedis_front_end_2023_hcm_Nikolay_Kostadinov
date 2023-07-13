@@ -48,16 +48,18 @@ export class SignUpComponent {
     }
 
     onSubmit(): void {
-        const { email, password, firstName, lastName, role, department, salary, age } = this.signUpForm.value;
-        this.authService.signUp(
-            email!,
-            password!,
-            role!,
-            firstName!,
-            lastName!,
-            department!,
-            salary!,
-            age!).subscribe();
-        this.router.navigate(['./employees']);
+        if (this.signUpForm.valid) {
+            const { email, password, firstName, lastName, role, department, salary, age } = this.signUpForm.value;
+            this.authService.signUp(
+                email!,
+                password!,
+                role!,
+                firstName!,
+                lastName!,
+                department!,
+                salary!,
+                age!).subscribe();
+            this.router.navigate(['./employees']);
+        }
     }
 }

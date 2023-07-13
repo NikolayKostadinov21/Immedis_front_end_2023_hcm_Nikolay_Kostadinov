@@ -16,6 +16,7 @@ import { EmployeeListComponent } from "../employees/employee-list/employee-list.
 import { ChangePasswordComponent } from "../employees/change-password/change-password.component";
 import { MatIconModule } from "@angular/material/icon";
 import { EmployeesComponent } from "../employees/employees/employees.component";
+import { EmployeeModule } from "../employees/employee.module";
 
 const routes: Routes = [
     {
@@ -96,6 +97,7 @@ const modulesMaterial = [
         ReactiveFormsModule,
         HttpClientModule,
         BrowserModule,
+        EmployeeModule,
         ...modulesMaterial,
         RouterModule.forChild(routes)
     ],

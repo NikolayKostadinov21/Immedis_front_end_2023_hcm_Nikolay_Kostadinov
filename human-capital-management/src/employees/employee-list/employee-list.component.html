@@ -1,5 +1,6 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
+        <img src="../../assets/icons/logo.svg">
         <span>HUMAN CAPITAL RESOURCES EMPLOYEES</span>
         <span class="toolbar-spacer"></span>
         <button mat-button (click)="navigateToSignUpPage()">Add Employee
@@ -91,6 +92,13 @@
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <ng-container matColumnDef="noRecords">
+            <td mat-footer-cell *matFooterCellDef>
+              No records found
+            </td>
+          </ng-container>
+          
+          <tr mat-footer-row *matFooterRowDef="!dataSource.filteredData.length ? ['noRecords'] : []"></tr>
     </table>
 
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
