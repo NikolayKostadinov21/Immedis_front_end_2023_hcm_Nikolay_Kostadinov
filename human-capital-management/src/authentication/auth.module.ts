@@ -4,7 +4,6 @@ import { SignUpComponent } from "./sign-up/sign-up.component";
 import { Router, RouterModule, Routes } from "@angular/router";
 import { HttpClientModule } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
-import { DashboardComponent } from "../dashboard/dashboard.component";
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,8 +13,9 @@ import { MatButtonModule } from "@angular/material/button";
 import { LocalStorageService } from "../shared/services/local-storage.service";
 import { Role } from "../shared/models/roles.model";
 import { EmployeeListComponent } from "../employees/employee-list/employee-list.component";
-import { ChangePasswordComponent } from "src/employees/change-password/change-password.component";
+import { ChangePasswordComponent } from "../employees/change-password/change-password.component";
 import { MatIconModule } from "@angular/material/icon";
+import { EmployeesComponent } from "../employees/employees/employees.component";
 
 const routes: Routes = [
     {
@@ -35,21 +35,8 @@ const routes: Routes = [
         component: SignInComponent
     },
     {
-        path: 'register',
-        canMatch: [
-            () => {
-                const user = inject(LocalStorageService).getUser();
-                if (user?.role === Role.admin) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        ],
-        component: SignUpComponent
-    },
-    {
-        path: 'dashboard',
+        path: 'employees',
+        component: EmployeesComponent,
         canMatch: [
             () => {
                 const router = inject(Router);
@@ -62,19 +49,34 @@ const routes: Routes = [
                 }
             }
         ],
-        component: DashboardComponent
-    },
-    {
-        path: 'employees',
-        component: EmployeeListComponent
-    },
-    {
-        path: 'change-password',
-        component: ChangePasswordComponent
+        children: [
+            {
+                path: 'change-password',
+                component: ChangePasswordComponent
+            },
+            {
+                path: 'register',
+                canMatch: [
+                    () => {
+                        const user = inject(LocalStorageService).getUser();
+                        if (user?.role === Role.admin) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                ],
+                component: SignUpComponent
+            },
+            {
+                path: '',
+                component: EmployeeListComponent
+            },
+        ]
     },
     {
         path: '**',
-        redirectTo: 'dashboard',
+        redirectTo: 'employees',
         pathMatch: 'full'
     }
 ];

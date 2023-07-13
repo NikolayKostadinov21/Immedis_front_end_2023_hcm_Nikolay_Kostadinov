@@ -1,5 +1,19 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>HUMAN CAPITAL RESOURCES EMPLOYEES</span>
+        <span class="toolbar-spacer"></span>
+        <button mat-button (click)="navigateToSignUpPage()">Add Employee
+            <mat-icon>add_box</mat-icon>
+        </button>
+        <button mat-button (click)="logout()">Logout
+            <mat-icon>logout</mat-icon>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+
 <div class="container">
     <mat-form-field>
+        <mat-icon>person_search</mat-icon>
         <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
     </mat-form-field>
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 table-employees">
@@ -82,3 +96,4 @@
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
     </mat-paginator>
 </div>
+<router-outlet></router-outlet>

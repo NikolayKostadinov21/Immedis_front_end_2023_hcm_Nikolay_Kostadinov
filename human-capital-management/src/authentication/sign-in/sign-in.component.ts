@@ -33,7 +33,7 @@ export class SignInComponent {
             next: (userData: UserData) => {
                 this.localStorageService.setToken(userData.accessToken);
                 this.localStorageService.saveUser(userData.user);
-                this.router.navigate(['./dashboard']);
+                this.router.navigate(['./employees']);
             }
         });
     }

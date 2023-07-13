@@ -43,6 +43,28 @@
       "department": "FEBeS",
       "salary": "1233",
       "age": "19"
+    },
+    {
+      "email": "test5@gmail.com",
+      "password": "$2a$10$GgVzgsnweF.lopYykdyKL.SXr6YK0h1B88tP8KU3i78GfKWvom5Em",
+      "role": "User",
+      "firstName": "TEST",
+      "lastName": "TESTOV",
+      "department": "febes",
+      "salary": 1000,
+      "age": 18,
+      "id": 9
+    },
+    {
+      "email": "test6@gmail.com",
+      "password": "$2a$10$Fs1NOL3TAG7iUdIO/YYekes/TXSDqQyEnL0cubkNgjbEeIVz1WgB6",
+      "role": "Moderator",
+      "firstName": "test",
+      "lastName": "testov",
+      "department": "febes",
+      "salary": 12456,
+      "age": 123,
+      "id": 10
     }
   ]
 }

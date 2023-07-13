@@ -9,6 +9,8 @@ import { EmployeeEditComponent } from '../employee-edit/employee-edit.component'
 import { LocalStorageService } from '../../shared/services/local-storage.service';
 import { Role } from '../../shared/models/roles.model';
 import { MatPaginator } from '@angular/material/paginator';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
     selector: 'app-employee-list',
@@ -31,7 +33,10 @@ export class EmployeeListComponent implements OnInit {
         private employeeService: EmployeeService,
         private dialog: MatDialog,
         private localStorageService: LocalStorageService,
-        private changeDetectorRefs: ChangeDetectorRef
+        private changeDetectorRefs: ChangeDetectorRef,
+        private router: Router,
+        private authService: AuthService,
+        private route: ActivatedRoute
     ) {
         this.currentUser = this.localStorageService.getUser();
         if (this.currentUser?.role === Role.admin || this.currentUser?.role === Role.moderator) {
@@ -96,5 +101,15 @@ export class EmployeeListComponent implements OnInit {
         if (this.dataSource.paginator) {
             this.dataSource.paginator.firstPage();
         }
+    }
+
+    navigateToSignUpPage(): void {
+        console.log('redirecting to register');
+        console.log(this.route)
+        this.router.navigate(['register'], {relativeTo:this.route});
+    }
+
+    logout(): void {
+        this.authService.signOut();
     }
 }

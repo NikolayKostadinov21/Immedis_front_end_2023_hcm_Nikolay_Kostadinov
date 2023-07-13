@@ -19,6 +19,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { ChangePasswordComponent } from "./change-password/change-password.component";
+import { EmployeesComponent } from "./employees/employees.component";
 
 const routes: Routes = [];
 
@@ -44,13 +45,15 @@ const modulesMaterial = [
         ReactiveFormsModule,
         ...modulesMaterial,
         FormsModule,
+        RouterModule,
         BrowserAnimationsModule,
         RouterModule.forChild(routes)
     ],
     declarations: [
         EmployeeListComponent,
         EmployeeEditComponent,
-        ChangePasswordComponent
+        ChangePasswordComponent,
+        EmployeesComponent
     ]
 })
 

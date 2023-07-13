@@ -52,3 +52,11 @@ table.mat-elevation-z8 {
 .button-container button {
     margin-right: 7px;
 }
+
+mat-toolbar {
+    margin-bottom: 20px;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}

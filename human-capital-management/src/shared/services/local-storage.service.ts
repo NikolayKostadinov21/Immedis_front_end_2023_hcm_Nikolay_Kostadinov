@@ -42,10 +42,9 @@ export class LocalStorageService {
     /**
      * Remove all key-value pairs from the web browser's localStorage object.
      */
-    signOut(): void {
+    logout(): void {
         localStorage.clear();
     }
-
 
     /**
      * Adding user's key pair information in the local storage
@@ -55,7 +54,6 @@ export class LocalStorageService {
         localStorage.removeItem(USER_KEY);
         localStorage.setItem(USER_KEY, JSON.stringify(user));
     }
-
 
     /**
      * Returns user's information from the local storage

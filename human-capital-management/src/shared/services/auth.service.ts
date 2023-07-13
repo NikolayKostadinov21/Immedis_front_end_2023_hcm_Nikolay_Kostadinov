@@ -64,7 +64,7 @@ export class AuthService {
      * Signing out the user from the system
      */
     signOut(): void {
-        this.localStorageService.signOut();
+        this.localStorageService.logout();
         this.router.navigate(['./login']);
     }
 }
