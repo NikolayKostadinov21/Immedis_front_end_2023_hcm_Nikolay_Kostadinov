@@ -3,7 +3,7 @@
         <img src="../../assets/icons/logo.svg">
         <mat-card-title>Register new employee</mat-card-title>
         <mat-card-content>
-            <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="signUpForm">
                 <mat-form-field>
                     <input formControlName="email" type="text" matInput placeholder="Email">
                     <mat-error>
@@ -65,10 +65,10 @@
                     </mat-error>
                 </mat-form-field>
 
-                <div class="button">
-                    <button type="submit" mat-raised-button>Register</button>
-                </div>
             </form>
+            <div class="button">
+                <button type="submit" [disabled]="signUpForm.invalid || !signUpForm.dirty" mat-raised-button (click)="onSubmit()">Register</button>
+            </div>
         </mat-card-content>
     </mat-card>
 </div>
