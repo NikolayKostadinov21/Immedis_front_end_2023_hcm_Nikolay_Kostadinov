@@ -13,6 +13,81 @@ Human Capital Management is suitable for small and medium-sized companies lookin
 
 ## Folder Structure
 
+```sh
+./src
+├── app
+│   ├── app
+│   │   ├── app.component.html
+│   │   ├── app.component.scss
+│   │   ├── app.component.spec
+│   │   ├── app.component.ts
+│   │   ├── app-routing.module.ts
+│   │   └── app.module.ts
+│   │
+│   │
+│   │── assets
+│   │   ├── icons
+│   │   │    └──logo.svg
+│   │   └── .gitkeep
+│   │
+│   │
+│   ├── authentication
+│   │   ├── sign-in
+│   │   │    ├──sign-in.component.html
+│   │   │    ├──sign-in.component.scss
+│   │   │    ├──sign-in.component.spec.ts
+│   │   │    └──sign-in.component.ts
+│   │   ├── sign-up
+│   │   │    ├──sign-up.component.html
+│   │   │    ├──sign-up.component.scss
+│   │   │    ├──sign-up.component.spec.ts
+│   │   │    └──sign-up.component.ts
+│   │   └── auth.module.ts
+│   │
+│   │
+│   ├── employees
+│   │   ├── change-password
+│   │   │    ├──change-password.component.html
+│   │   │    ├──change-password.component.scss
+│   │   │    ├──change-password.component.spec.ts
+│   │   │    └──change-password.component.ts
+│   │   ├── employee-edit
+│   │   │    ├──employee-edit.component.html
+│   │   │    ├──employee-edit.component.scss
+│   │   │    ├──employee-edit.component.spec.ts
+│   │   │    └──employee-edit.component.ts
+│   │   ├── employee-list
+│   │   │    ├──employee-list.component.html
+│   │   │    ├──employee-list.component.scss
+│   │   │    ├──employee-list.component.spec.ts
+│   │   │    └──employee-list.component.ts
+│   │   ├── employees
+│   │   │    ├──employees.component.html
+│   │   │    ├──employees.component.scss
+│   │   │    ├──employees.component.spec.ts
+│   │   │    └──employees.component.ts
+│   │   └── employee.module.ts
+│   │
+│   │
+│   ├── shared
+│   │   ├── helpers
+│   │   │    └──constants.ts
+│   │   │
+│   │   ├── interceptors
+│   │   │    └──auth.interceptor.ts
+│   │   │
+│   │   ├── models
+│   │   │    └──roles.model.ts
+│   │   │    └──user.model.ts
+│   │   │    └──userdata.model.ts
+│   │   │
+│   │   ├── services
+│   │   │    └──auth.service.ts
+│   │   │    └──change-password.service.ts
+│   │   │    └──employees.service.ts
+│   │   │    └──local-storage.service.ts
+│   │   │
+```
 
 ## Authorization rules
 
