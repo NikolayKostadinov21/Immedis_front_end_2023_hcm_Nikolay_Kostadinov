@@ -28,6 +28,10 @@ Human Capital Management is suitable for small and medium-sized companies lookin
 │   │── assets
 │   │   ├── icons
 │   │   │    └──logo.svg
+│   │   │    └──changePassword.svg
+│   │   │    └──listedEmployees.svg
+│   │   │    └──loginPage.svg
+│   │   │    └──register.svg
 │   │   └── .gitkeep
 │   │
 │   │
