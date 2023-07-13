@@ -97,9 +97,11 @@ Admins are the most privileged individuals as they have the ability to add, dele
 1. An admin creates a new user, who is a new employee in the company.
 The admin can create it from the register page: 
 ![Register photo](human-capital-management/src/assets/icons/register.png)
+
 2. The new employee, depending on their role (admin, moderator, user), can immediately change their password.
 The user can change its password from here:
 ![Change Password photo](human-capital-management/src/assets/icons/changePassword.png)
+
 3. Based on their permissions, they can then begin adding, editing, or filtering employees in the company.
 ![Employees List](human-capital-management/src/assets/icons/employeesList.png)
 
