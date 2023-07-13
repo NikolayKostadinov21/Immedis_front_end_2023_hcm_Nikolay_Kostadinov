@@ -62,7 +62,7 @@ export class SignUpComponent {
                 salary!,
                 age!).subscribe({
                     error: (error) => {
-                        this.snackBar.open(error.error);
+                        this.snackBar.open(error.error, 'Close');
                     }
                 });
             this.router.navigate(['./employees']);

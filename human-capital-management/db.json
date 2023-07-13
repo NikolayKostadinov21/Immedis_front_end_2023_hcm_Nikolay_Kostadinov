@@ -76,6 +76,17 @@
       "salary": 1223,
       "age": 19,
       "id": 11
+    },
+    {
+      "email": "test10@gmail.com",
+      "password": "$2a$10$5.5e93TWsPMXeWUGF6y1ZOkqY7Tzo/sV7EyWwuQjDolxccU3peJzq",
+      "role": "User",
+      "firstName": "test",
+      "lastName": "testov",
+      "department": "FEBES",
+      "salary": 1460,
+      "age": 19,
+      "id": 12
     }
   ]
 }

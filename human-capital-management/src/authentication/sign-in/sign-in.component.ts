@@ -12,7 +12,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent {
-
     readonly signInForm = new FormGroup({
         email: new FormControl('', {
             validators: [Validators.required],
@@ -38,7 +37,7 @@ export class SignInComponent {
                 this.router.navigate(['./employees']);
             },
             error: (error) => {
-                this.snackBar.open(error.error);
+                this.snackBar.open(error.error, 'Close');
             }
         });
     }

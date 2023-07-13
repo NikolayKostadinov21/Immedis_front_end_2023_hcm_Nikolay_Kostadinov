@@ -8,7 +8,7 @@
 
 .login-content {
     width: 700px;
-    height: 350px;
+    height: 300px;
     padding: 20px;
     background-color: #fff;
     border-radius: 4px;
@@ -33,6 +33,10 @@ mat-form-field {
     margin-bottom: 10px;
 }
 
+mat-toolbar {
+    margin-bottom: 20px;
+}
+
 .mat-icon {
     margin-right: 10px;
 }
@@ -43,5 +47,4 @@ mat-divider {
 
 mat-dialog-actions {
     justify-content: center;
-    margin-top: 20px;
 }
