@@ -90,12 +90,11 @@ Human Capital Management is suitable for small and medium-sized companies lookin
 ```
 
 
-
 ## The core workflow and logic behind human capital resources
 Admins are the most privileged individuals as they have the ability to add, delete, and edit other admins, moderators, and users. The workflow for adding a new user is as follows:
 
 1. An admin creates a new user, who is a new employee in the company.
-The admin can create it from the register page: 
+The admin can create it from the register page:
 ![Register photo](human-capital-management/src/assets/icons/register.png)
 
 2. The new employee, depending on their role (admin, moderator, user), can immediately change their password.
@@ -103,8 +102,12 @@ The user can change its password from here:
 
 ![Change Password photo](human-capital-management/src/assets/icons/changePassword.png)
 
-3. Based on their permissions, they can then begin adding, editing, or filtering employees in the company.
-![Employees List](human-capital-management/src/assets/icons/employeesList.png)
+3. Then the user will be loged out and forced to login with his new password.
+This is happening here:
+![Login Page photo](human-capital-management/src/assets/icons/loginPage.png)
+
+4. Based on their permissions, they can then begin adding, editing, or filtering employees in the company.
+![Listed Employees photo](human-capital-management/src/assets/icons/listedEmployees.png)
 
 ## Authorization rules
 
@@ -120,6 +123,8 @@ The user can change its password from here:
 
 ## Additional Information
 - The project's architecture is influenced by its classification as a small/medium enterprise, shaping its current design and structure. That's why for example the services are all in one folder `shared/services/...` instead of putting each service in each component on its own.
+
+- The users information is stored in the db.json file, every user has a password: "test"
 
 - The reason why lazy loading isn't performed on **EmployeeListComponent**, **SignUpComponent**, **ChangePasswordComponent** and **EmployeesComponent** is because of the implementation of **canMatch** guard in **EmployeesComponent**
 
