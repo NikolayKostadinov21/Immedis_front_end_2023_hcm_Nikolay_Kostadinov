@@ -100,6 +100,7 @@ The admin can create it from the register page:
 
 2. The new employee, depending on their role (admin, moderator, user), can immediately change their password.
 The user can change its password from here:
+
 ![Change Password photo](human-capital-management/src/assets/icons/changePassword.png)
 
 3. Based on their permissions, they can then begin adding, editing, or filtering employees in the company.
