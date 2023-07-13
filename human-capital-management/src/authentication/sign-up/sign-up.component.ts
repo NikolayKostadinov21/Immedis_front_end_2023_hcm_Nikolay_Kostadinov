@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { Role } from '../../shared/models/roles.model';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
     selector: 'app-sign-up',
@@ -42,7 +43,8 @@ export class SignUpComponent {
 
     constructor(
         private authService: AuthService,
-        private router: Router
+        private router: Router,
+        private snackBar: MatSnackBar
     ) {
         this.roles = Object.values(Role);
     }
@@ -58,7 +60,11 @@ export class SignUpComponent {
                 lastName!,
                 department!,
                 salary!,
-                age!).subscribe();
+                age!).subscribe({
+                    error: (error) => {
+                        this.snackBar.open(error.error);
+                    }
+                });
             this.router.navigate(['./employees']);
         }
     }

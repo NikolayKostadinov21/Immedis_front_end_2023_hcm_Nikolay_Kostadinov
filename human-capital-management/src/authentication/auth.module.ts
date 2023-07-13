@@ -15,8 +15,10 @@ import { Role } from "../shared/models/roles.model";
 import { EmployeeListComponent } from "../employees/employee-list/employee-list.component";
 import { ChangePasswordComponent } from "../employees/change-password/change-password.component";
 import { MatIconModule } from "@angular/material/icon";
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { EmployeesComponent } from "../employees/employees/employees.component";
 import { EmployeeModule } from "../employees/employee.module";
+
 
 const routes: Routes = [
     {
@@ -88,7 +90,8 @@ const modulesMaterial = [
     MatSelectModule,
     MatInputModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule
 ];
 
 @NgModule({

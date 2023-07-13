@@ -4,6 +4,7 @@ import { AuthService } from '../../shared/services/auth.service';
 import { Router } from '@angular/router';
 import { LocalStorageService } from '../../shared/services/local-storage.service';
 import { UserData } from '../../shared/models/userdata.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
     selector: 'app-sign-in',
@@ -24,7 +25,8 @@ export class SignInComponent {
     constructor(
         private authService: AuthService,
         private localStorageService: LocalStorageService,
-        private router: Router
+        private router: Router,
+        private snackBar: MatSnackBar
     ) { }
 
     onSubmit(): void {
@@ -34,6 +36,9 @@ export class SignInComponent {
                 this.localStorageService.setToken(userData.accessToken);
                 this.localStorageService.saveUser(userData.user);
                 this.router.navigate(['./employees']);
+            },
+            error: (error) => {
+                this.snackBar.open(error.error);
             }
         });
     }
